@@ -48,6 +48,12 @@ export interface Api extends types.IAnnotated,types.IParsedTypeCollection {
     securitySchemes(): SecuritySchemeDefinition[]
 
     securedBy(): SecuredBy[]
+
+    protocols(): string[]
+
+    mediaType(): string[]
+
+    baseUriParameters(): Parameter[];
 }
 
 
@@ -98,6 +104,8 @@ export interface Method extends types.IAnnotated {
     responses(): Response[] //
 
     resource(): Resource //
+
+    protocols(): string[]
 }
 
 export interface Response extends types.IAnnotated {
@@ -109,6 +117,8 @@ export interface Response extends types.IAnnotated {
     bodies(): Body[] //
 
     method(): Method //
+
+    description(): string
 }
 
 export interface Parameter extends types.IAnnotated {
