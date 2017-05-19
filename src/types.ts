@@ -12,7 +12,15 @@ export interface IValidationPath {
     name: string|number
     child?: IValidationPath
 }
-
+export interface IExample {
+    name(): string;
+    strict(): boolean;
+    value(): any;
+    annotationsMap(): {
+        [key: string]: IAnnotation[];
+    };
+    annotations(): IAnnotation[];
+}
 export interface IStatus  {
 
 
@@ -263,6 +271,9 @@ export interface Type  {
     allSuperTypes(): Type[]
 
 
+    examples(): IExample[]
+
+
     annotations(): IAnnotation[]
 
 
@@ -274,7 +285,8 @@ export interface Type  {
     /**
      * for union types returns options, for a normal ones returns an array consisting from type itself
      */
-    options(): Type[]
+
+    allOptions():Type[]
 
     properties(): Property[]
 

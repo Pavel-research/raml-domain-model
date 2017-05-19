@@ -1,11 +1,32 @@
 import types=require("./types")
 
-export import Type=types.Type;
 export import IAnnotation=types.IAnnotation;
 export import Property=types.Property;
 export import Facet=types.ITypeFacet;
 export import IAnnotated=types.IAnnotated;
 
+export interface Type extends types.Type {
+
+}
+export interface SecuritySchemeDefinition {
+
+    name(): string
+
+    type(): string
+
+    description(): string
+
+    settings(): {[name: string]: any}
+}
+
+export interface SecuredBy {
+    name(): string
+    settings(): {[name: string]: any}
+}
+export interface Documentation{
+    title(): string
+    content(): string;
+}
 export interface Api extends types.IAnnotated,types.IParsedTypeCollection {
 
     title(): string
@@ -16,18 +37,30 @@ export interface Api extends types.IAnnotated,types.IParsedTypeCollection {
 
     description(): string
 
+    documentation(): Documentation[]
+
     resources(): Resource[]
 
     allResources(): Resource[]
 
     allMethods(): Method[];
+
+    securitySchemes(): SecuritySchemeDefinition[]
+
+    securedBy(): SecuredBy[]
 }
 
-export interface Library extends types.IAnnotated,types.IParsedTypeCollection{
 
+export interface Library extends types.IAnnotated,types.IParsedTypeCollection {
+
+    securitySchemes(): SecuritySchemeDefinition[]
+
+    usage(): string
 }
 
 export interface Resource extends types.IAnnotated {
+
+    securedBy(): SecuredBy[]
 
     relativeUrl();
 
@@ -49,6 +82,8 @@ export interface Resource extends types.IAnnotated {
 }
 
 export interface Method extends types.IAnnotated {
+
+    securedBy(): SecuredBy[]
 
     displayName(): string //
 
