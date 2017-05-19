@@ -11,5 +11,5 @@ Major interfaces:
 ![Diagram](diagram.png)
 
 
-It is expected that this view is good for tool developers who are only interested in semantic concepts encoded in RAML files, such as mock servers, api consoles, client generators. In other words this interfaces are not expected to be best for somebody who is writing an IDE, but should be good for the person who want to generate API documentation from RAML files or striving for creation of another testing tool for APIs.
+It is expected that this view is good for tool developers who are only interested in semantic concepts encoded in RAML files, such as mock servers, api consoles, client generators. In other words this interfaces are not expected to be best for somebody who is writing an IDE, but should be good for the person who want to generate API documentation from RAML files or going to create another testing tool for APIs.
 
