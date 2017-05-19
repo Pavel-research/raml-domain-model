@@ -5,10 +5,10 @@ export import Property=types.Property;
 export import Facet=types.ITypeFacet;
 export import IAnnotated=types.IAnnotated;
 
-export interface Type extends types.Type {
+export interface Type extends types.Type,IAnnotated {
 
 }
-export interface SecuritySchemeDefinition {
+export interface SecuritySchemeDefinition extends IAnnotated{
 
     name(): string
 
