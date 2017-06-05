@@ -1,4 +1,4 @@
-import types=require("./types")
+export import types=require("./types")
 
 export import IAnnotation=types.IAnnotation;
 export import Property=types.Property;
@@ -8,6 +8,7 @@ export import IAnnotated=types.IAnnotated;
 export interface Type extends types.Type,IAnnotated {
 
 }
+
 export interface SecuritySchemeDefinition extends IAnnotated{
 
     name(): string

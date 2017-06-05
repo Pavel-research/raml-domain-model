@@ -148,7 +148,10 @@ export interface ITypeFacet {
      */
     annotations(): IAnnotation[]
 }
-
+export  interface PropertyIsFacet extends ITypeFacet{
+    cloneWithType(t:Type):PropertyIsFacet;
+    readonly name: string
+}
 /**
  * Model of annotation instances applied to types or their facets
  */
@@ -416,4 +419,6 @@ export interface Type  {
      * returns true if this type is built in
      */
     isBuiltin(): boolean
+
+    cloneWithFilter(x: (y: ITypeFacet,transformed?:Type) => boolean | ITypeFacet,f?: (t:Type)=>Type): Type;
 }
