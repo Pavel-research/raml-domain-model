@@ -9,7 +9,7 @@ export interface Type extends types.Type,IAnnotated {
 
 }
 
-export interface SecuritySchemeDefinition extends IAnnotated{
+export interface SecuritySchemeDefinition extends IAnnotated {
 
     name(): string
 
@@ -24,7 +24,8 @@ export interface SecuredBy {
     name(): string
     settings(): {[name: string]: any}
 }
-export interface Documentation{
+
+export interface Documentation {
     title(): string
     content(): string;
 }
