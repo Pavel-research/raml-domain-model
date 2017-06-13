@@ -421,4 +421,8 @@ export interface Type  {
     isBuiltin(): boolean
 
     cloneWithFilter(x: (y: ITypeFacet,transformed?:Type) => boolean | ITypeFacet,f?: (t:Type)=>Type): Type;
+
+    registry(): IParsedTypeCollection
+
+    isAssignableFrom(t:Type):boolean
 }
