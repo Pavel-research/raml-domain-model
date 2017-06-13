@@ -21,7 +21,7 @@ export interface IExample {
     };
     annotations(): IAnnotation[];
 }
-export interface IStatus  {
+export interface IStatus {
 
 
     /**
@@ -88,9 +88,11 @@ export interface IStatus  {
     getFilePath(): string;
 }
 
-export interface IAnnotated{
+export interface IAnnotated {
 
-    annotations():IAnnotation[]
+    annotations(): IAnnotation[]
+
+    annotation(name: string): any
 }
 
 export enum MetaInformationKind {
@@ -148,14 +150,14 @@ export interface ITypeFacet {
      */
     annotations(): IAnnotation[]
 }
-export  interface PropertyIsFacet extends ITypeFacet{
-    cloneWithType(t:Type):PropertyIsFacet;
+export  interface PropertyIsFacet extends ITypeFacet {
+    cloneWithType(t: Type): PropertyIsFacet;
     readonly name: string
 }
 /**
  * Model of annotation instances applied to types or their facets
  */
-export interface IAnnotation  {
+export interface IAnnotation {
 
     /**
      * Returns owner facet for annotations applied to facets
@@ -243,7 +245,7 @@ export interface Property {
  * parsed representation of the type
  * you should not create instances of this interfaces manually
  */
-export interface Type  {
+export interface Type {
 
     /**
      * returns  list of directly declared sub types of this type
@@ -289,7 +291,7 @@ export interface Type  {
      * for union types returns options, for a normal ones returns an array consisting from type itself
      */
 
-    allOptions():Type[]
+    allOptions(): Type[]
 
     properties(): Property[]
 
@@ -420,9 +422,9 @@ export interface Type  {
      */
     isBuiltin(): boolean
 
-    cloneWithFilter(x: (y: ITypeFacet,transformed?:Type) => boolean | ITypeFacet,f?: (t:Type)=>Type): Type;
+    cloneWithFilter(x: (y: ITypeFacet, transformed?: Type) => boolean | ITypeFacet, f?: (t: Type) => Type): Type;
 
     registry(): IParsedTypeCollection
 
-    isAssignableFrom(t:Type):boolean
+    isAssignableFrom(t: Type): boolean
 }
