@@ -245,7 +245,7 @@ export interface Property {
  * parsed representation of the type
  * you should not create instances of this interfaces manually
  */
-export interface Type {
+export interface Type extends IAnnotated{
 
     /**
      * returns  list of directly declared sub types of this type
